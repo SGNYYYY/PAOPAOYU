@@ -14,7 +14,6 @@
     "uploadFile": 10000,
     "downloadFile": 10000
   },
-  "workers": "workers",
   "debug": false,
   "style": "v2",
   "permission": {
