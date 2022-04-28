@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/publish/index",
     "pages/message/index",
-    "pages/my/index"
+    "pages/my/index",
+    "pages/detail/detail-xianzhi"
   ],
   "window": {
     "navigationBarTextStyle": "black",

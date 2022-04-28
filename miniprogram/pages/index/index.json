@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "product-daiqu": "/components/product-daiqu/index",
+    "product-xianzhi": "/components/product-xianzhi/index"
+  }
 }

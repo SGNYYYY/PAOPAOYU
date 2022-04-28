@@ -1,0 +1,33 @@
+<!--pages/detail/detail-xianzhi.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="user-image">
+      <image class="img" src="{{product_xianzhi.product_img}}"></image>
+    </view>
+    <view class="user-name">{{product_xianzhi.send_name}}
+    </view>
+  </view>
+  <view class="product-container">
+    <view class="price-container">
+      <text class='price-symbol' >￥</text>
+      <text class='price' >{{product_xianzhi.price}}</text>
+    </view>
+    <view class="product-name">{{product_xianzhi.name}}</view>
+    <view class="product-desc">{{product_xianzhi.desc}}</view>
+  </view>
+    <!-- 底部 -->
+    <view class='bottom-container'>
+      <view class='icon-container home' bind:tap='goHome' >
+        <icon class='iconfont icon-fonthome'></icon>
+        <text>首页</text>
+      </view>
+      <view class="icon-container customer {{focusStatus?'focusActive':''}}" bind:tap='focus'>
+        <icon class="iconfont icon-fontshoucang"></icon>
+        <text>关注</text>
+      </view>
+      <view class='go-container'>
+        <view class='showCartDetail' bind:tap='showDetail' data-btnid='0'><text>我想要</text></view>
+        <view class='immediately' bind:tap='showDetail' data-btnid='1'><text>立即购买</text></view>
+      </view>
+  </view>
+</view>

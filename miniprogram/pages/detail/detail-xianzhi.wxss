@@ -1,0 +1,121 @@
+/* pages/detail/detail-xianzhi.wxss */
+@import "/style/iconfont.wxss";
+.container {
+  width: 750rpx;
+}
+/* 轮播图 */
+.header{
+  display: flex;
+  height: 100rpx;
+  width: 750rpx;
+  height:100%;
+  border-radius: 25rpx;
+  border-top-left-radius: cover;
+  align-items: center;
+}
+.user-image .img{
+  height: 120rpx;
+  width: 120rpx;
+  border-radius:100%;
+  margin-left:40rpx;
+  margin-top:20rpx;
+}
+.user-name {
+  margin-left:20rpx;
+}
+.product-container {
+  width: 95%;
+}
+/* 价格 */
+.price-container{
+  width: 100%;
+  justify-content: left;
+  margin-top: 30rpx;
+}
+.price-symbol {
+  font-size:40rpx;
+  font-weight:400;
+  color:#ff6600;
+}
+.price {
+  font-size:40rpx;
+  font-weight:600;
+  color:#ff6600;
+}
+.product-name {
+  font-size: 40rpx;
+  font-weight: 700;
+}
+.product-desc {
+  margin-top:20rpx;
+}
+.bottom-container{
+  width:750rpx;
+  height:140rpx;
+  position: fixed;
+  bottom: 0;
+  background:rgba(255,255,255,1);
+  box-shadow:0 10rpx 12rpx 12rpx rgba(138,80,80,0.13);
+  display: inline-flex;
+  justify-content: space-around;
+  align-items:center;
+}
+.icon-container{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.cart icon{
+  color: #6A6A6A;
+}
+.customer icon{
+  color: #6A6A6A;
+}
+.focusActive icon{
+  color: #FC2C1D;
+}
+.home icon{
+  font-size: 60rpx;
+  color: #FC2C1D;
+}
+.customer icon{
+  font-size: 60rpx;
+}
+.focusActive icon{
+  color:rgba(255,140,79,1)
+}
+.cart icon{
+  font-size: 60rpx;
+}
+.icon-container text{
+  font-size:18rpx;
+  color:#6A6A6A;
+  line-height:26rpx;
+}
+.go-container{
+ 
+  display: inline-flex;
+ 
+}
+.go-container>view{
+  width: 206rpx;
+  height:68rpx;
+}
+.showCartDetail{
+  background:rgba(255,140,79,1);
+  border-top-left-radius: 34rpx;
+  border-bottom-left-radius: 34rpx;
+  text-align: center;
+}
+.immediately{
+  background:rgba(252,44,29,1);
+  border-top-right-radius: 34rpx;
+  border-bottom-right-radius: 34rpx;
+  text-align: center;
+}
+.showCartDetail text,.immediately text{
+  font-size:28rpx;
+  color:#FFFFFF;
+  line-height:68rpx;
+}

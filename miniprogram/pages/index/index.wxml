@@ -1,2 +1,29 @@
 <!--page/index/index.wxml-->
-<text>page/index/index.wxml</text>
+<view class='container'>
+   <!--1、轮播图 -->
+  <swiper class='swiper-container'  indicator-dots="{{indicatorDots}}" indicator-active-color='#fff'
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+    <block wx:for="{{banners}}" wx:key="key">
+      <swiper-item class='swiper-item'>
+        <image  class='swiper-img' src="{{item.image}}" bindtap="preview" data-src="{{item.image}}"  mode='scaleToFill'></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- tab选项卡 -->
+  <view class='tab-container' >
+    <view class="swiper-tab">
+      <view wx:for="{{tab}}" wx:key="index">
+        <view class="swiper-tab-item {{currentTab==item.current_tab?'active':''}}" data-current="{{item.current_tab}}" bindtap="clickTab">
+          {{item.tab_name}}
+          <view class='line'></view>        
+        </view>
+      </view>
+    </view>
+  </view>
+  <block wx:for="{{product_daiqu}}" wx:key="key">
+    <product-daiqu currentTab="{{currentTab}}" product_daiqu="{{item}}"></product-daiqu>
+  </block>
+  <block wx:for="{{product_xianzhi}}" wx:key="key">
+    <product-xianzhi currentTab="{{currentTab}}" product_xianzhi="{{item}}" bind:xianzhiDetails="xianzhiDetails"></product-xianzhi>
+  </block>
+</view>

@@ -1,1 +1,51 @@
 /* page/index/index.wxss */
+.container {
+  width: 750rpx;
+}
+/* 轮播图 */
+.swiper-container{
+  height: 450rpx;
+  width: 90%;
+}
+.swiper-item{
+  width: 750rpx;
+  height:100%;
+  border-radius: 25rpx;
+  border-top-left-radius: cover;
+  box-shadow: 0rpx 0rpx 14rpx 0rpx rgb(218, 218, 218);
+}
+.swiper-item image{
+  width: 100%;
+  height: 100%;
+}
+.swiper-tab{
+  width: 750rpx;
+  height: 70rpx;
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0rpx 25rpx 10rpx 25rpx;
+  background-color: #fff;
+}
+.swiper-tab-item{
+  width:130rpx;
+  height:50rpx;
+  text-align: center;
+  margin-right: 12rpx;
+  color: #000000;
+  font-size:28rpx;
+  line-height:50rpx;
+}
+.active{
+  color:#ff5e00ec;
+  /* border-bottom:1rpx solid #ff5e00ec; */
+}
+.active .line{
+  position: relative;
+  bottom: 5rpx;
+  height: 5rpx;
+  width: 30rpx;
+  border-radius: 10rpx;
+  background: #ff5e00ec;
+  margin: 5rpx 50rpx 0rpx 50rpx;
+}

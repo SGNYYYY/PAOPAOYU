@@ -1,0 +1,61 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3364314 */
+  src: url('//at.alicdn.com/t/font_3364314_zu3dx64bals.eot?t=1651072481268'); /* IE9 */
+  src: url('//at.alicdn.com/t/font_3364314_zu3dx64bals.eot?t=1651072481268#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('//at.alicdn.com/t/font_3364314_zu3dx64bals.woff2?t=1651072481268') format('woff2'),
+       url('//at.alicdn.com/t/font_3364314_zu3dx64bals.woff?t=1651072481268') format('woff'),
+       url('//at.alicdn.com/t/font_3364314_zu3dx64bals.ttf?t=1651072481268') format('truetype'),
+       url('//at.alicdn.com/t/font_3364314_zu3dx64bals.svg?t=1651072481268#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-fonthome:before {
+  content: "\e601";
+}
+
+.icon-fontgengduo:before {
+  content: "\ec1c";
+}
+
+.icon-fontshoucang:before {
+  content: "\e8c6";
+}
+
+.icon-fontxiangxia:before {
+  content: "\e600";
+}
+
+.icon-fonthorn:before {
+  content: "\e614";
+}
+
+.icon-fontLocation:before {
+  content: "\e642";
+}
+
+.icon-fontshouhuoren:before {
+  content: "\e623";
+}
+
+.icon-fontkefu:before {
+  content: "\e625";
+}
+
+.icon-fontweixin:before {
+  content: "\e6b3";
+}
+
+.icon-fontdianhua:before {
+  content: "\e8ad";
+}
+
+.icon-fontfuzhi:before {
+  content: "\e8b0";
+}
