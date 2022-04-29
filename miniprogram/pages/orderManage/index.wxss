@@ -1,0 +1,52 @@
+/* pages/orderManage/index.wxss */
+
+/* 订单管理 */
+.orderManageBtnView {
+
+  border-color: transparent;
+  position:fixed;
+  bottom:0;
+}
+
+.orderManageBtn {
+  font-size: 10px;
+  color: transparent;
+  border-color: transparent;
+  background: transparent;
+  left: 10%;
+}
+
+
+
+/* 用户管理 */
+.usrManageBtnView {
+
+  border-color: transparent;
+  position:fixed;
+  bottom:0;
+  left: 36%;
+}
+
+.usrManageBtn {
+  font-size: 10px;
+  color: transparent;
+  border-color: transparent;
+  background: transparent;
+}
+
+
+/* 个人中心 */
+.managerMyBtnView {
+
+  border-color: transparent;
+  position:fixed;
+  bottom:0;
+  left: 72%;
+}
+
+.managerMyBtn {
+  font-size: 10px;
+  color: transparent;
+  border-color: transparent;
+  background: transparent;
+}

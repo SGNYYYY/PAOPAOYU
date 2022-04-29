@@ -1,6 +1,4 @@
-// page/my/index.js
-
-
+// pages/usrManage/index.js
 Page({
 
   /**
@@ -8,16 +6,13 @@ Page({
    */
   data: {
 
-    loggedin_hidden: true,
-    un_loggedin_hidden: false,
-    imgUrl: "../../images/un_log.png"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+
   },
 
   /**
@@ -30,11 +25,9 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow:function(){
-  },
-  // onShow: function () {
+  onShow: function () {
 
-  // },
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -70,50 +63,23 @@ Page({
   onShareAppMessage: function () {
 
   },
-  
 
-
-  /**
-   * 管理员登录按钮
-   */
-  loginManager: function(param){
+  // 底部选项卡
+  orderManage: function(param){
     var app = getApp()
     wx.navigateTo({
-      url: '../managerLogin/index',
-    })
+      url: '../orderManage/index',
+    })  
   },
 
-  
-  
-  /**
-   * 授权登录按钮
-   */
-  bindGetUserInfo: function() {
-    wx.switchTab({
-      url: '../index/index',
-    })
-    this.setData({
-      un_loggedin_hidden:true,
-      loggedin_hidden:false,
-      imgUrl: "../../images/loginLog.jpg"
-    })
-    app.globalData.hasLogin = true
-    wx.showToast({
-      title: '登录成功',
-      icon: 'none',
-      duration: 2000
-    })
+  usrManage: function(param){
 
   },
 
-  /**
-   * 我的订单跳转
-   */
-  myOrder: function() {
+  managerMy: function(param){
+    var app = getApp()
     wx.navigateTo({
-      url: '../myOrder/index',
-    })
+      url: '../managerMy/index',
+    })  
   }
-
-  
 })

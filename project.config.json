@@ -26,8 +26,8 @@
     "compileHotReLoad": true,
     "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
-    "useApiHook": true,
-    "useApiHostProcess": true,
+    "useApiHook": false,
+    "useApiHostProcess": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],

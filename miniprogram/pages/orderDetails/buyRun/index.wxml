@@ -1,0 +1,36 @@
+<!--pages/orderDetails/buyRun/index.wxml-->
+<text>pages/orderDetails/buyRun/index.wxml</text>
+
+<wxs module="filter" src="../../../common/wxs/filters.wxs"></wxs>
+<view class='container'>
+
+  <view class='product-container'>
+    <block wx:for="{{products}}" wx:key="">
+      <view class="product-item">
+        <!-- <view class="item-left">
+          <image src="{{item.product_img}}"></image>
+        </view> -->
+        <view class="item-middle">
+          <view>订单编号：{{item.id}}</view>
+          <view>订单名称：{{item.name}}</view>
+          <view>出发地：{{item.from}}</view>
+          <view>目的地：{{item.to}}</view>
+          <view>日期：{{item.date.month}}月{{item.date.day}}日</view>
+          <view>时间：{{item.time_from}} ~ {{item.time_to}}</view>
+          <view>价格：{{item.price}}元</view>
+        </view>
+
+      </view>
+    </block>
+  </view>
+  
+  <view class='confirm-container'>
+
+    <view class='confirm' bindtap="back">
+      <text>返回</text>
+    </view>
+
+  </view>
+
+</view>
+

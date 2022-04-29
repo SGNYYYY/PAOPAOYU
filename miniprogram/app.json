@@ -1,10 +1,20 @@
 {
   "pages": [
+
     "pages/index/index",
     "pages/publish/index",
     "pages/message/index",
     "pages/my/index",
-    "pages/detail/detail-xianzhi"
+    "pages/detail/detail-xianzhi",
+    "pages/orderManage/index",
+    "pages/usrManage/index",
+    "pages/managerMy/index",
+    "pages/managerLogin/index",
+    "pages/myOrder/index",
+    "pages/orderDetails/buyGoods/index",
+    "pages/orderDetails/buyRun/index",
+    "pages/orderDetails/sellGoods/index",
+    "pages/orderDetails/sellRun/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -17,37 +27,43 @@
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
   },
+  
   "tabBar": {
-    "color": "#7F8389",
-    "selectedColor": "#FF6200",
-    "backgroundColor": "#fff",
-    "borderStyle": "black",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "iconPath": "",
-        "selectedIconPath": "",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/publish/index",
-        "iconPath": "",
-        "selectedIconPath": "",
-        "text": "发布"
-      },
-      {
-        "pagePath": "pages/message/index",
-        "iconPath": "",
-        "selectedIconPath": "",
-        "text": "消息"
-      },
-      {
-        "pagePath": "pages/my/index",
-        "iconPath": "",
-        "selectedIconPath": "",
-        "text": "个人中心"
-      }
-    ]
+      "color": "#7F8389",
+      "selectedColor": "#FF6200",
+      "backgroundColor": "#fff",
+      "borderStyle": "black",
+      "list": [
+        {
+          "pagePath": "pages/index/index",
+          "iconPath": "",
+          "selectedIconPath": "",
+          "text": "首页",
+          "clas": "menu-item"
+        },
+        {
+          "pagePath": "pages/publish/index",
+          "iconPath": "",
+          "selectedIconPath": "",
+          "text": "发布",
+          "clas": "menu-item"
+        },
+        {
+          "pagePath": "pages/message/index",
+          "iconPath": "",
+          "selectedIconPath": "",
+          "text": "消息",
+          "clas": "menu-item"
+        },
+        {
+          "pagePath": "pages/my/index",
+          "iconPath": "",
+          "selectedIconPath": "",
+          "text": "个人中心",
+          "clas": "menu-item"
+        }
+      ]
   },
+
   "sitemapLocation": "sitemap.json"
 }

@@ -1,6 +1,4 @@
-// page/my/index.js
-
-
+// pages/myOrder/index.js
 Page({
 
   /**
@@ -8,16 +6,13 @@ Page({
    */
   data: {
 
-    loggedin_hidden: true,
-    un_loggedin_hidden: false,
-    imgUrl: "../../images/un_log.png"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+
   },
 
   /**
@@ -30,11 +25,9 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow:function(){
-  },
-  // onShow: function () {
+  onShow: function () {
 
-  // },
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -70,50 +63,33 @@ Page({
   onShareAppMessage: function () {
 
   },
-  
 
 
-  /**
-   * 管理员登录按钮
-   */
-  loginManager: function(param){
-    var app = getApp()
+  // 我的订单跳转
+  sellGoods: function() {
     wx.navigateTo({
-      url: '../managerLogin/index',
+      url: '../orderDetails/sellGoods/index'
     })
   },
 
-  
-  
-  /**
-   * 授权登录按钮
-   */
-  bindGetUserInfo: function() {
-    wx.switchTab({
-      url: '../index/index',
+  // 我的订单跳转
+  buyGoods: function() {
+    wx.navigateTo({
+      url: '../orderDetails/buyGoods/index'
     })
-    this.setData({
-      un_loggedin_hidden:true,
-      loggedin_hidden:false,
-      imgUrl: "../../images/loginLog.jpg"
-    })
-    app.globalData.hasLogin = true
-    wx.showToast({
-      title: '登录成功',
-      icon: 'none',
-      duration: 2000
-    })
-
   },
 
-  /**
-   * 我的订单跳转
-   */
-  myOrder: function() {
+  // 我的订单跳转
+  sellRun: function() {
     wx.navigateTo({
-      url: '../myOrder/index',
+      url: '../orderDetails/sellRun/index'
+    })
+  },
+
+  // 我的订单跳转
+  buyRun: function() {
+    wx.navigateTo({
+      url: '../orderDetails/buyRun/index'
     })
   }
-
-  
 })

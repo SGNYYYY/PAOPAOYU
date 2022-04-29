@@ -27,3 +27,4 @@
     <product-xianzhi currentTab="{{currentTab}}" product_xianzhi="{{item}}" bind:xianzhiDetails="xianzhiDetails"></product-xianzhi>
   </block>
 </view>
+

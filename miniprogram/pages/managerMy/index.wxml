@@ -1,0 +1,34 @@
+<!--pages/managerMy/index.wxml-->
+<text>pages/managerMy/index.wxml</text>
+
+
+<view class = "container">
+  <!-- 退出登录按钮 -->
+  <view class="logoutBtnView"> 
+   <button class="logoutBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="logout">退出登录</button> 
+  </view>
+
+</view>
+
+
+<!-- 订单管理按钮 -->
+<view class="orderManageBtnView"> 
+   <button class="orderManageBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="true" disabled="{{disabled}}" bindtap="orderManage">订单管理</button> 
+</view>
+
+<!-- 用户管理按钮 -->
+<view class="usrManageBtnView"> 
+   <button class="usrManageBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="true" disabled="{{disabled}}" bindtap="usrManage">用户管理</button> 
+</view>
+
+
+<!-- 个人中心按钮 -->
+<view class="managerMyBtnView"> 
+   <button class="managerMyBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="true" disabled="{{disabled}}" bindtap="managerMy">个人中心</button> 
+</view>
+
+
+
+   
+
+

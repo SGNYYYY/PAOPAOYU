@@ -1,0 +1,37 @@
+<!--pages/myOrder/index.wxml-->
+<text>pages/myOrder/index.wxml</text>
+
+<view class="ohter mt">
+    <button class="cell" bindtap="buyRun">
+        <view class="cellLeft">
+            <image src="../../images/buyRun.png"></image>
+            <text>我发布的代跑信息</text>
+        </view>
+        <text class="cellRight">></text>
+    </button>
+
+
+    <button class="cell" bindtap="sellGoods">
+        <view class="cellLeft">
+            <image src="../../images/sellGoods.png"></image>
+            <text>我发布的闲置商品</text>
+        </view>
+        <text class="cellRight">></text>
+    </button>
+
+    <button class="cell" bindtap="sellRun">
+        <view class="cellLeft">
+            <image src="../../images/sellRun.png"></image>
+            <text>我接受的代跑需求</text>
+        </view>
+        <text class="cellRight">></text>
+    </button>
+
+    <button class="cell" bindtap="buyGoods">
+        <view class="cellLeft">
+            <image src="../../images/buyGoods.png"></image>
+            <text>我购买的闲置商品</text>
+        </view>
+        <text class="cellRight">></text>
+    </button>
+</view>

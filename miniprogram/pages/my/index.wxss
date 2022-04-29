@@ -1,1 +1,91 @@
 /* page/my/index.wxss */
+
+
+
+ /* 管理员登录按钮 */
+.loginManagerBtnView {
+  width: 30%; 
+  height: auto; 
+  margin-top: 20px; 
+  margin-left: 200px;
+  margin-bottom: 0px; 
+  padding-bottom: 0px; 
+
+ }
+
+ .loginManagerBtn {
+   font-size: small;
+ }
+
+
+
+ /* 授权登录 */
+ .header {
+  margin: 90rpx 0 90rpx 50rpx;
+  text-align: center;
+  width: 650rpx;
+  height: 300rpx;
+  line-height: 450rpx;
+}
+
+.header image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 100rpx;
+}
+
+.content {
+  margin-left: 50rpx;
+  margin-bottom: 90rpx;
+}
+
+.content text {
+  display: block;
+  color: #9d9d9d;
+  margin-top: 40rpx;
+}
+
+.bottom {
+  border-radius: 80rpx;
+  margin: 70rpx 50rpx;
+  font-size: 35rpx;
+}
+
+
+
+/* 我的订单选项卡 */
+.cell {
+  display: flex;
+  width: 90% !important;
+  background-color: #fff;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 40rpx;
+  margin-top: 6rpx;
+  font-weight: 400;
+}
+
+.cell .cellLeft {
+  display: flex;
+  align-items: center;
+}
+
+.cell .cellLeft image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.cell .cellLeft text {
+  margin-left: 30rpx;
+}
+
+.cell .cellRight {
+  color: #c1c1c1;
+}
+
+
+.mt {
+  margin-top: 25rpx;
+}
+

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText":"我购买的闲置商品",
+  "usingComponents":{
+    "address-comp":"../../../components/address/index",
+    "img-btn-comp": "../../../components/image-button/index"
+  }
+
+}
