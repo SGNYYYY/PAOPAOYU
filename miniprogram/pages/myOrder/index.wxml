@@ -1,6 +1,4 @@
 <!--pages/myOrder/index.wxml-->
-<text>pages/myOrder/index.wxml</text>
-
 <view class="ohter mt">
     <button class="cell" bindtap="buyRun">
         <view class="cellLeft">

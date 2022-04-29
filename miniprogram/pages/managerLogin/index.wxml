@@ -1,6 +1,4 @@
 <!--pages/memLogin/index.wxml-->
-<text>pages/managerLogin/index.wxml</text>
-
 <view class="container"> 
  
  <view class="login-icon"> 

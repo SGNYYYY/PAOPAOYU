@@ -1,6 +1,4 @@
 <!--pages/orderDetails/sellRun/index.wxml-->
-<text>pages/orderDetails/sellRun/index.wxml</text>
-
 <wxs module="filter" src="../../../common/wxs/filters.wxs"></wxs>
 <view class='container'>
 

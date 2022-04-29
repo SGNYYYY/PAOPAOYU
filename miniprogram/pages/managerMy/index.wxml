@@ -1,7 +1,4 @@
 <!--pages/managerMy/index.wxml-->
-<text>pages/managerMy/index.wxml</text>
-
-
 <view class = "container">
   <!-- 退出登录按钮 -->
   <view class="logoutBtnView"> 

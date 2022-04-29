@@ -6,11 +6,9 @@
 .loginManagerBtnView {
   width: 30%; 
   height: auto; 
-  margin-top: 20px; 
-  margin-left: 200px;
-  margin-bottom: 0px; 
-  padding-bottom: 0px; 
-
+  bottom: 0;
+  right: 0;
+  position:absolute;
  }
 
  .loginManagerBtn {

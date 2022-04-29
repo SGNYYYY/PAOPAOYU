@@ -1,37 +1,30 @@
 <!--page/my/index.wxml-->
-<text>page/my/index.wxml</text>
-
-
-
 <!-- 授权登录 -->
 
 <view class='header'>
-    <image src="{{imgUrl}}"></image>
+    <image src="{{login==true?userInfo.avatarUrl:imgUrl}}"></image>
 </view>
+<block wx:if="{{!login}}">
 
-<view class='content' hidden="{{un_loggedin_hidden}}">
-    <view>申请获取以下权限</view>
-    <text>获得你的公开信息(昵称，头像等)</text>
-</view>
-
-<button class='bottom' hidden="{{un_loggedin_hidden}}" type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
-    授权登录
-</button>
+  <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindtap="getUserProfile">
+      授权登录
+  </button>
+</block>
 
 
 
-
-<!-- 我的订单按钮 -->
-<view class="ohter mt" hidden="{{loggedin_hidden}}">
-    <button class="cell" bindtap="myOrder">
-        <view class="cellLeft">
-            <image src="../../images/order.png"></image>
-            <text>我的订单</text>
-        </view>
-        <text class="cellRight">></text>
-    </button>
-</view>
-
+<block wx:else>
+  <!-- 我的订单按钮 -->
+  <view class="ohter mt">
+      <button class="cell" bindtap="myOrder">
+          <view class="cellLeft">
+              <image src="../../images/order.png"></image>
+              <text>我的订单</text>
+          </view>
+          <text class="cellRight">></text>
+      </button>
+  </view>
+</block>
 <!-- 管理员登录按钮 -->
 <view class="loginManagerBtnView"> 
 <button class="loginManagerBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="true" disabled="{{disabled}}" bindtap="loginManager">管理员登录</button> 

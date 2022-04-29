@@ -26,13 +26,13 @@ App({
       that.globalData.openid=res.result.data.OPENID
       let openID = res.result.data.OPENID
       console.log(openID)
-      // userInfoModel.getUserInfoByOpenId(openID,res => {
-      //   console.log(res.result.data.data[0])
-      //   if (res.result.data.data[0]==null){
-      //   } else {
-      //     that.globalData.islog=true
-      //   }
-      // })    
+      userInfoModel.getUserInfoByOpenId(openID,res => {
+        console.log(res.result.data.data[0])
+        if (res.result.data.data[0]==null){
+        } else {
+          that.globalData.hasLogin=true
+        }
+      })    
     })
   },
 })
