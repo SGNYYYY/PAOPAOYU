@@ -3,7 +3,7 @@
 <view class='container'>
 
 
-  <block wx:if="{{login!=1}}">
+  <block wx:if="{{!login}}">
   <view class='head-container'>
     <view class='header-img'>      
     </view>

@@ -1,4 +1,5 @@
 // page/publish/index.js
+const app = getApp()
 Page({
 
   /**
@@ -6,7 +7,7 @@ Page({
    */
   data: {
     
-    login: 1,
+    login: false,
     check1:true,
     fileIDs: [],
     fileIDs1:[],
@@ -405,24 +406,6 @@ onLoad: function (options) {
   }
 },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -434,7 +417,9 @@ onLoad: function (options) {
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      login:app.globalData.hasLogin
+    })
   },
 
   /**
