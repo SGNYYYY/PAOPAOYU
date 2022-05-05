@@ -50,3 +50,29 @@
   border-color: transparent;
   background: transparent;
 }
+.delete_xianzhi{
+  width:170rpx;
+  height:56rpx;
+  line-height: 56rpx;
+  background:rgba(255,79,80,1);
+  border-radius:15rpx;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  position:relative;
+  left:245rpx;
+  top: -110rpx;
+}
+.delete_daiqu{
+  width:170rpx;
+  height:56rpx;
+  line-height: 56rpx;
+  background:rgba(255,79,80,1);
+  border-radius:15rpx;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  position:relative;
+  left:242rpx;
+  top: -75rpx;
+}

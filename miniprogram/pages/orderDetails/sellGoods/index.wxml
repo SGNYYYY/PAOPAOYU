@@ -6,14 +6,13 @@
     <block wx:for="{{products}}" wx:key="">
       <view class="product-item">
         <view class="item-left">
-          <image src="{{item.send_avataUrl}}"></image>
-          <image src="{{item.product_img}}"></image>
+          <image src="{{item.imgFileIDs[0]}}"></image>
         </view>
         <view class="item-middle">
-          <view>订单编号：{{item.id}}</view>
-          <view>订单名称：{{item.name}}</view>
-          <view>订单价格：{{item.price}}</view>
-          <view>发送用户名：{{item.send_name}}</view>
+          <view>物品名称：{{item.name}}</view>
+          <view>价格：￥{{item.price}}</view>
+          <view>订单状态：{{orderStatus[item.status]}}</view>
+          <view>卖家昵称：{{item.send_name}}</view>
         </view>
 
 

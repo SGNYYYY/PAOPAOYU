@@ -6,6 +6,7 @@ App({
     hasLogin: false,
     openid: null,
     iconTabbar: '',
+    orderStatus:["待购买","待完成","已完成"]
   },
   onLaunch(opts, data) {
     if (!wx.cloud) {

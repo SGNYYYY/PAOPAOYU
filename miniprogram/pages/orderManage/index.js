@@ -1,4 +1,7 @@
 // pages/orderManage/index.js
+import {IndexModel} from '../../models/IndexModel'
+let indexModel = new IndexModel()
+var app = getApp();
 Page({
 
   /**
@@ -26,7 +29,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    indexModel.getXianzhi(res => {
+      this.setData({
+        product_xianzhi :  res.result.data.data
+      })
+    })  
+    indexModel.getDaiqu(res => {
+      this.setData({
+        product_daiqu :  res.result.data.data
+      })
+    })  
   },
 
   /**

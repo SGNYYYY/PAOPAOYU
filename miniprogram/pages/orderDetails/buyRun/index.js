@@ -1,5 +1,7 @@
 // pages/orderDetails/buyRun/index.js
-// pages/orderDetails/index.js
+const app = getApp()
+import {DaiquModel} from '../../../models/DaiquModel'
+let daiquModel = new DaiquModel()
 Page({
 
   /**
@@ -9,39 +11,22 @@ Page({
   data: {
 
     products: [
-    {
-      id: 1,
-      name: "快递",
-      from: "浴池",
-      to: "五舍B",
-      time_from: "13:00",
-      time_to: "19:00",
-      date:{
-        month:5,
-        day:1
-      },
-      price: 1
-    },
-    {
-      id: 2,
-      name: "外卖",
-      from: "小西门",
-      to: "一舍A",
-      time_from: "12:30",
-      time_to: "13:00",
-      date:{
-        month:5,
-        day:1
-      },
-      price: 2
-    }
   ]
   },
   /**
    * 生命周期函数--监听页面加载
    */
+  _init: function () {
+    daiquModel.getDaiquByTakerOpenId(app.globalData.openid, res=>{
+      this.setData({
+        products:res.result.data.data
+      })
+    })
+  },
   onLoad: function (options) {
-
+    this.setData({
+      orderStatus:app.globalData.orderStatus
+    })
   },
 
   /**
@@ -55,7 +40,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this._init()
   },
 
   /**

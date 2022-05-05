@@ -1,30 +1,62 @@
 // pages/detail/detail-xianzhi.js
+import {XianzhiModel} from '../../models/XianzhiModel'
+import { UserInfoModel } from '../../models/UserInfoModel.js'
+let userInfoModel = new UserInfoModel()
+let xianzhiModel = new XianzhiModel()
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    login:false,
     product_xianzhi_id:0,
     product_xianzhi:{
-      id:1,
-      name:"几乎全新书包",
-      product_img:"/image/adv1.JPG",
-      price:99,
-      desc:"这边填写用户对商品的描述",
-      send_name:"user1", //发送用户名
-      send_avataUrl:""      //发送用户头像链接
     },
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-    this.setData({
-      product_xianzhi_id:options.product_id
+  _init:function(_id){ 
+    xianzhiModel.getXianzhiById(_id,res=>{
+      this.setData({
+        product_xianzhi: res.result.data.data
+      })
     })
-    console.log(this.data.product_xianzhi_id)
+  },
+  immediately:function(){
+    if(!this.data.login){
+      wx.showModal({
+        title: '请登陆后操作~',
+        showCancel:false
+      })
+    }else{
+      let xianzhi =  {}
+      xianzhi._id = this.data.product_xianzhi._id
+      xianzhi.taker_name = this.data.userInfo.nickName
+      xianzhi.taker_avatarUrl = this.data.userInfo.taker_avatarUrl
+      xianzhi.taker_openid = this.data.userInfo.openID
+      xianzhi.status = 1
+      xianzhiModel.takeXianzhi(xianzhi, res=>{
+        if (res.result.code == 0) {
+          this._showToast('none', '下单成功!')
+        }
+      })
+      wx.switchTab({
+        url: '../message/index',
+      })
+    }
+  },
+  _showToast: function (type, msg) {
+    wx.showToast({
+      icon: type,
+      title: msg
+    })
+  },
+  onLoad(options) {
+    this._init(options.product_id)
   },
 
   /**
@@ -38,6 +70,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    this.setData({
+      login:app.globalData.hasLogin
+    })
+    if (this.data.login&&this.data.userInfo==null) {
+      userInfoModel.getUserInfoByOpenId(app.globalData.openid,res => {
+        this.setData({
+          userInfo:  res.result.data.data[0],
+          login: true
+        })
+      })    
+    }
   },
 
   /**

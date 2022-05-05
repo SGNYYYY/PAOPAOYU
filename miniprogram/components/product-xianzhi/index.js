@@ -29,7 +29,7 @@ Component({
    xianzhiDetails: function () {
     // 返回 
     this.triggerEvent("xianzhiDetails", {
-       product_xianzhi_id: this.data.product_xianzhi.id
+       product_xianzhi_id: this.data.product_xianzhi._id
     }, {})
   },
   }

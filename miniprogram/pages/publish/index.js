@@ -1,12 +1,63 @@
 // page/publish/index.js
 const app = getApp()
+import {XianzhiModel} from '../../models/XianzhiModel'
+import {DaiquModel} from '../../models/DaiquModel'
+import { UserInfoModel } from '../../models/UserInfoModel.js'
+let userInfoModel = new UserInfoModel()
+let xianzhiModel = new XianzhiModel()
+let daiquModel = new DaiquModel()
+const date = new Date();
+const years = [];
+const months = [];
+const days = [];
+const hours = [];
+const minutes = [];
+//获取年
+for (let i = date.getFullYear(); i <= date.getFullYear() + 5; i++) {
+  years.push("" + i);
+}
+//获取月份
+for (let i = 1; i <= 12; i++) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  months.push("" + i);
+}
+//获取日期
+for (let i = 1; i <= 31; i++) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  days.push("" + i);
+}
+//获取小时
+for (let i = 0; i < 24; i++) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  hours.push("" + i);
+}
+//获取分钟
+for (let i = 0; i < 60; i++) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  minutes.push("" + i);
+}
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    year:'',
+    month:'',
+    day:'',
+    time_to:'',
+    time: '',
+    multiArray: [years, months, days, hours, minutes],
+    multiIndex: [0, 9, 16, 10, 17],
+    choose_year: '',
     login: false,
     check1:true,
     fileIDs: [],
@@ -19,7 +70,8 @@ Page({
     length1:0,
     length2:0,
     shiwu:null,
-    di:0,
+    index_from:0,
+    index_to:0,
     imgList1: [], //失物
     index: null,
     picker: ['一号楼', '生科楼', '建筑楼', '信息楼', '风雨操场', '文管楼', '食堂', '澡堂', '其他地点'],
@@ -98,36 +150,22 @@ formSubmit1: function (e) {
           }))
         }
         Promise.all(promiseArr).then(res => {
-          dd.collection('shop').add({
-            data: {
-              mingcheng: e.detail.value.mingcheng,
-              miaoshu: e.detail.value.miaoshu,
-              piece: e.detail.value.jiage,
-              phone: e.detail.value.phone,
-              neew: e.detail.value.type2,//gai
-              type: e.detail.value.type1,
-              fileIDs: this.data.fileIDs, //只有当所有的图片都上传完毕后，这个值才能被设置
-              username:app.globalData.name1,
-              touxiangurl:app.globalData.src1,
-              weixin:e.detail.value.weixin,
-              view:0,
-              love:0,
-              rule:1,
-              height:0
+          let xianzhi = {}
+          xianzhi.name = e.detail.value.mingcheng
+          xianzhi.imgFileIDs = this.data.fileIDs
+          xianzhi.price = e.detail.value.jiage
+          xianzhi.desc = e.detail.miaoshu
+          xianzhi.contact_tel = e.detail.value.phone
+          xianzhi.contact_wechat = e.detail.value.weixin
+          xianzhi.status = 0
+          xianzhi.type = this.data.picker1[e.detail.value.type1]
+          xianzhi.type_special = this.data.picker2[e.detail.value.type2]
+          xianzhiModel.creatXianzhi(xianzhi,this.data.userInfo,res => {
+            if (res.result.code == 0) {
+              this._showToast('none', '订单创建成功!')
             }
           })
-            .then(res => {
-              console.log(app.globalData.src1)
-              console.log(res)
-              wx.hideLoading()
-              wx.showToast({
-                title: '发布成功~',
-              })
-            })
-            .catch(error => {
-              console.log(error)
-            })
-        })
+        })    
   }
  }
   }
@@ -187,58 +225,29 @@ formSubmit2: function (e) {
           title: '发布中',
         })
         const promiseArr1= []
-        //遍历临时的图片数组
-        for (let i = 0; i < this.data.length2; i++) {
-          let filePath = this.data.imgList1[i]
-          let suffix = /\.[^\.]+$/.exec(filePath)[0]; // 正则表达式，获取文件扩展名
-          //在每次上传的时候，就往promiseArr里存一个promise，只有当所有的都返回结果时，才继续往下执行
-          promiseArr1.push(new Promise((reslove, reject) => {
-            wx.cloud.uploadFile({
-              cloudPath: new Date().getTime() + suffix,
-              filePath: filePath, // 文件路径
-            }).then(res => {
-              // get resource ID
-              console.log(res.fileID)
-              this.setData({
-                fileIDs1: this.data.fileIDs1.concat(res.fileID)
-              })
-              reslove()
-            }).catch(error => {
-              console.log(error)
-            })
-          }))
-        }
-        Promise.all(promiseArr1).then(res => {
-          dd.collection('lost').add({
-            data: {
-              mingcheng: e.detail.value.mingcheng2,
-              miaoshu: e.detail.value.miaoshu2,
-              piece: e.detail.value.jiage2,
-              phone: e.detail.value.phone2,
-              didian: e.detail.value.location,
-              type2: bianliang,
-              fileIDs1: this.data.fileIDs1, //只有当所有的图片都上传完毕后，这个值才能被设置
-              username:app.globalData.name1,
-              touxiangurl:app.globalData.src1,
-              weixin:e.detail.value.weixin1,
-              view:0,
-              love:0,
-              rule:1,
-              height:0
-            }
-          })
-            .then(res => {
-              console.log(res)
-              wx.hideLoading()
-              wx.showToast({
-                title: '发布成功',
-              })
-              this.formreset2();
-            })
-            .catch(error => {
-              console.log(error)
-            })
-        })      
+        let daiqu = {}
+        daiqu.name = e.detail.value.mingcheng2
+        daiqu.price = e.detail.value.jiage2
+        daiqu.from = this.data.picker[e.detail.value.location_from]
+        daiqu.from_desc = e.detail.value.from_desc
+        daiqu.to = this.data.picker[e.detail.value.location_to]
+        daiqu.to_desc = e.detail.value.to_desc
+        let temp_date = {}
+        temp_date.year = this.data.time.year
+        temp_date.month = this.data.time.month
+        temp_date.day = this.data.time.day
+        daiqu.date = temp_date
+        daiqu.time_to = this.data.time.time_to
+        daiqu.desc = e.detail.value.tips
+        daiqu.contact_tel = e.detail.value.phone2
+        daiqu.contact_wechat = e.detail.value.weixin1
+        daiqu.status = 0
+        console.log(daiqu)
+        daiquModel.createDaiqu(daiqu,this.data.userInfo,res => {
+          if (res.result.code == 0) {
+            this._showToast('none', '订单创建成功!')
+          }
+        })
       }
     }
   }
@@ -266,16 +275,28 @@ textareaAInput(e) {
     textareaAValue: e.detail.value
   })
 },
-PickerChange(e) {
+PickerChange_from(e) {
   console.log(e);
   this.setData({
-    di: e.detail.value
+    index_from: e.detail.value
+  })
+},
+PickerChange_to(e) {
+  console.log(e);
+  this.setData({
+    index_to: e.detail.value
   })
 },
 PickerChange1(e) {
   console.log(e);
   this.setData({
     index1: e.detail.value
+  })
+},
+PickerChange1_s(e) {
+  console.log(e);
+  this.setData({
+    index2: e.detail.value
   })
 },
 tabSelect(e) {
@@ -378,8 +399,104 @@ DelImg1(e) {
     }
   })
 },
-
-
+_showToast: function (type, msg) {
+  wx.showToast({
+    icon: type,
+    title: msg
+  })
+},
+  //获取时间日期
+  bindMultiPickerChange: function(e) {
+    // console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      multiIndex: e.detail.value
+    })
+    const index = this.data.multiIndex;
+    const year = this.data.multiArray[0][index[0]];
+    const month = this.data.multiArray[1][index[1]];
+    const day = this.data.multiArray[2][index[2]];
+    const hour = this.data.multiArray[3][index[3]];
+    const minute = this.data.multiArray[4][index[4]];
+    // console.log(`${year}-${month}-${day}-${hour}-${minute}`);
+    this.setData({
+      time:{
+        all: year + '-' + month + '-' + day + ' ' + hour + ':' + minute,
+        year: year,
+        month: month,
+        day: day,
+        time_to: hour + ':' + minute,
+      }
+    })
+    // console.log(this.data.time);
+  },
+  //监听picker的滚动事件
+  bindMultiPickerColumnChange: function(e) {
+    //获取年份
+    if (e.detail.column == 0) {
+      let choose_year = this.data.multiArray[e.detail.column][e.detail.value];
+      console.log(choose_year);
+      this.setData({
+        choose_year
+      })
+    }
+    //console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
+    if (e.detail.column == 1) {
+      let num = parseInt(this.data.multiArray[e.detail.column][e.detail.value]);
+      let temp = [];
+      if (num == 1 || num == 3 || num == 5 || num == 7 || num == 8 || num == 10 || num == 12) { //判断31天的月份
+        for (let i = 1; i <= 31; i++) {
+          if (i < 10) {
+            i = "0" + i;
+          }
+          temp.push("" + i);
+        }
+        this.setData({
+          ['multiArray[2]']: temp
+        });
+      } else if (num == 4 || num == 6 || num == 9 || num == 11) { //判断30天的月份
+        for (let i = 1; i <= 30; i++) {
+          if (i < 10) {
+            i = "0" + i;
+          }
+          temp.push("" + i);
+        }
+        this.setData({
+          ['multiArray[2]']: temp
+        });
+      } else if (num == 2) { //判断2月份天数
+        let year = parseInt(this.data.choose_year);
+        console.log(year);
+        if (((year % 400 == 0) || (year % 100 != 0)) && (year % 4 == 0)) {
+          for (let i = 1; i <= 29; i++) {
+            if (i < 10) {
+              i = "0" + i;
+            }
+            temp.push("" + i);
+          }
+          this.setData({
+            ['multiArray[2]']: temp
+          });
+        } else {
+          for (let i = 1; i <= 28; i++) {
+            if (i < 10) {
+              i = "0" + i;
+            }
+            temp.push("" + i);
+          }
+          this.setData({
+            ['multiArray[2]']: temp
+          });
+        }
+      }
+      console.log(this.data.multiArray[2]);
+    }
+    var data = {
+      multiArray: this.data.multiArray,
+      multiIndex: this.data.multiIndex
+    };
+    data.multiIndex[e.detail.column] = e.detail.value;
+    this.setData(data);
+  },
 
 
 
@@ -398,13 +515,12 @@ DelImg1(e) {
 /**
  * 生命周期函数--监听页面加载
  */
-onLoad: function (options) {
-  if (app.globalData.openid) {
-    this.setData({
-      openid: app.globalData.openid
+  onLoad: function (options) {
+     //设置默认的年份
+     this.setData({
+      choose_year: this.data.multiArray[0][0]
     })
-  }
-},
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -419,6 +535,22 @@ onLoad: function (options) {
   onShow: function () {
     this.setData({
       login:app.globalData.hasLogin
+    })
+    if (this.data.login&&this.data.userInfo==null) {
+      userInfoModel.getUserInfoByOpenId(app.globalData.openid,res => {
+        this.setData({
+          userInfo:  res.result.data.data[0]
+        })
+      })    
+    }
+    let tempIndex = []
+    tempIndex.push(""+0)
+    tempIndex.push(""+date.getMonth())
+    tempIndex.push(""+date.getDay())
+    tempIndex.push(""+date.getHours())
+    tempIndex.push(""+date.getMinutes())
+    this.setData({
+      multiIndex:tempIndex
     })
   },
 

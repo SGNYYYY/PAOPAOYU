@@ -1,8 +1,6 @@
 {
-  "navigationBarTitleText":"我接受的代跑需求",
+  "navigationBarTitleText":"我发布的代跑信息",
   "usingComponents":{
-    "address-comp":"../../../components/address/index",
-    "img-btn-comp": "../../../components/image-button/index"
   }
 
 }

@@ -2,7 +2,7 @@
 <view class="container">
   <view class="header">
     <view class="user-image">
-      <image class="img" src="{{product_xianzhi.product_img}}"></image>
+      <image class="img" src="{{product_xianzhi.send_avatarUrl}}"></image>
     </view>
     <view class="user-name">{{product_xianzhi.send_name}}
     </view>
@@ -14,6 +14,9 @@
     </view>
     <view class="product-name">{{product_xianzhi.name}}</view>
     <view class="product-desc">{{product_xianzhi.desc}}</view>
+    <view wx:for="{{product_xianzhi.imgFileIDs}}" wx:key="key">
+      <image src="{{item}}"></image>
+    </view>
   </view>
     <!-- 底部 -->
     <view class='bottom-container'>
@@ -27,7 +30,7 @@
       </view>
       <view class='go-container'>
         <view class='showCartDetail' bind:tap='showDetail' data-btnid='0'><text>我想要</text></view>
-        <view class='immediately' bind:tap='showDetail' data-btnid='1'><text>立即购买</text></view>
+        <view class='immediately' bind:tap='immediately' data-btnid='1'><text>立即购买</text></view>
       </view>
   </view>
 </view>

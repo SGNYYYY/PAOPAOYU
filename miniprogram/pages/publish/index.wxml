@@ -49,11 +49,9 @@
 
 <block wx:else>
   <view class='head-container'>
-    <view class='header-img'>  
-    </view>
     <view class='head-title' slot="info">
       <view class='header-name'>
-        <text>{{'欢迎使用'}}
+        <text>{{'订单发布'}}
         </text>
       </view>
     </view>
@@ -75,7 +73,7 @@
   <view class="shadow">
   <view class="cu-form-group">
 		<view class="title">商品名称：</view>
-		<input name="mingcheng" confirm-type="done" placeholder="请输入订单名称"></input>
+		<input name="mingcheng" confirm-type="done" placeholder="请输入商品名称"></input>
 	</view>
 
   <view class="cu-form-group">
@@ -152,7 +150,7 @@
 <view class="cu-form-group">
   <view class="title">特殊物品类型说明
   </view>
-		<picker name="type2" bindchange="PickerChange1" value="{{index2}}" range="{{picker2}}">
+		<picker name="type2" bindchange="PickerChange1_s" value="{{index2}}" range="{{picker2}}">
 			<view class="picker">
 				{{picker2[index2]}}
 			</view>
@@ -185,61 +183,48 @@
 
 
 
- <!--************************长期订单页***********************-->
+ <!--************************代取订单页***********************-->
  <view class="{{TabCur==1?'show':'hidden'}}">
   <form bindsubmit='formSubmit2' bindreset='formreset2'>
-  <!--radio-group name='type2' class="block">
-		<view class="cu-form-group1">
-			<view class="title">可代取订单</view>
-			<radio checked="{{check1}}" value='0'></radio>
-		</view>
-		<view class="cu-form-group1 Line">
-			<view class="title">需代取订单</view>
-			<radio value='1'></radio>
-		</view>
-    </radio-group-->
-    
   <view class='shadow'>
   <view class="cu-form-group  margin-top">
 		<view class="title">跑腿需求：</view>
-		<input name='mingcheng2' confirm-type='done' placeholder="请输入物品名称"></input>
+		<input name='mingcheng2' confirm-type='done' placeholder="请输入物品名称（如快递、外卖等）"></input>
 	</view>
-
   <view class="cu-form-group">
-		<textarea name='miaoshu2' auto-height='true' maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="详细描述"></textarea>
+    <view class="title">代取地</view>
+      <picker name='location_from' bindchange="PickerChange_from" value="{{index_from}}" range="{{picker}}">
+        <view class="picker">
+          {{picker[index_from]}}
+        </view>
+      </picker>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">代取地详细地点：</view>
+		<textarea name='from_desc' auto-height='true' maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="详细描述"></textarea>
 	</view>
-
- <!--图片上传-->
- <view class="cu-bar bg-white margin-top">
-		<view class="action">
-			说明图片  (如需说明跑腿具体需求，可上传照片)
-		</view>
-		<view class="action">
-			{{length2}}/5
-		</view>
-	</view>
-	<view class="cu-form-group">
-		<view class="grid col-5 grid-square flex-sub">
-			<view class="bg-img" wx:for="{{imgList1}}" wx:for-index="shiwu" wx:key="{{shiwu}}" bindtap="ViewImage1" data-url="{{imgList1[shiwu]}}">
-				<image src='{{imgList1[shiwu]}}' mode='aspectFill'></image>
-				<view class="cu-tag bg-red" catchtap="DelImg1" data-index="{{shiwu}}">
-					<text class="cuIcon-close"></text>
-				</view>
-			</view>
-			<view class="solids" bindtap="ChooseImage1" wx:if="{{length2<5}}">
-				<text class="cuIcon-cameraadd"></text>
-			</view>
-		</view>
-	</view>
+  <view class="cu-form-group">
+  <view class="title">结束时间：</view>
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <input name='time_to' value='{{time.all}}' placeholder='选择结束时间'/>
+    </picker>
+  </view>
   	<view class="cu-form-group shadow ">
-<view class="title">地点</view>
-<text class="cuIcon-location"></text>
-		<picker name='location' bindchange="PickerChange" value="{{di}}" range="{{picker}}">
-			<view class="picker">
-				{{picker[di]}}
-			</view>
-		</picker>
-				</view>
+      <view class="title">目的地</view>
+      <picker name='location_to' bindchange="PickerChange_to" value="{{index_to}}" range="{{picker}}">
+        <view class="picker">
+          {{picker[index_to]}}
+        </view>
+      </picker>
+		</view>
+    <view class="cu-form-group">
+      <view class="title">目的地详细地点：</view>
+		  <textarea name='to_desc' auto-height='true' maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="详细描述"></textarea>
+	  </view>
+    <view class="cu-form-group">
+      <view class="title">备注：</view>
+		  <textarea name='tips' auto-height='true' maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="备注信息"></textarea>
+	  </view>
 
   <view class="cu-form-group margin-top">
 		<view class="title">跑腿服务费：</view>

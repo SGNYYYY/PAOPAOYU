@@ -24,6 +24,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+   // 商品详情
+   showDaiquDetail: function () {
+    // 返回 
+    this.triggerEvent("showDaiquDetail", {
+       product_daiqu_id: this.data.product_daiqu._id
+    }, {})
+  },
   }
 })

@@ -1,5 +1,7 @@
 // pages/orderDetails/buyGoods/index.js
-
+import {XianzhiModel} from '../../../models/XianzhiModel.js'
+let xianzhiModel = new XianzhiModel()
+const app = getApp()
 Page({
 
   /**
@@ -8,22 +10,6 @@ Page({
 
   data: {
     products: [
-    {
-      id: 1,
-      name: "几乎全新书包",
-      product_img: "../../../images/loginLog.jpg",
-      price: 99,
-      send_name: "user1",
-      send_avataUrl: "../../../images/order.png",
-    },
-    {
-      id: 2,
-      name: "牛奶",
-      product_img: "../../../images/loginLog.jpg",
-      price: 30,
-      send_name: "user2",
-      send_avataUrl: "../../../images/order.png",
-    }
   ]
   },   
 
@@ -31,7 +17,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      orderStatus:app.globalData.orderStatus
+    })
   },
 
   /**
@@ -44,8 +32,15 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
+  _init: function () {
+    xianzhiModel.getXianzhiByTakerOpenId(app.globalData.openid, res=>{
+      this.setData({
+        products:res.result.data.data
+      })
+    })
+  },
   onShow: function () {
-
+    this._init()
   },
 
   /**

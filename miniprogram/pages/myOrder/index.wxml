@@ -1,6 +1,6 @@
 <!--pages/myOrder/index.wxml-->
 <view class="ohter mt">
-    <button class="cell" bindtap="buyRun">
+    <button class="cell" bindtap="sellRun">
         <view class="cellLeft">
             <image src="../../images/buyRun.png"></image>
             <text>我发布的代跑信息</text>
@@ -17,7 +17,7 @@
         <text class="cellRight">></text>
     </button>
 
-    <button class="cell" bindtap="sellRun">
+    <button class="cell" bindtap="buyRun">
         <view class="cellLeft">
             <image src="../../images/sellRun.png"></image>
             <text>我接受的代跑需求</text>

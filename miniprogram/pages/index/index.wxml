@@ -21,10 +21,36 @@
     </view>
   </view>
   <block wx:for="{{product_daiqu}}" wx:key="key">
-    <product-daiqu currentTab="{{currentTab}}" product_daiqu="{{item}}"></product-daiqu>
+    <product-daiqu currentTab="{{currentTab}}" product_daiqu="{{item}}" bind:showDaiquDetail='showDaiquDetail' ></product-daiqu>
   </block>
   <block wx:for="{{product_xianzhi}}" wx:key="key">
     <product-xianzhi currentTab="{{currentTab}}" product_xianzhi="{{item}}" bind:xianzhiDetails="xianzhiDetails"></product-xianzhi>
   </block>
 </view>
+
+<!--遮罩-->
+<view class='mask' hidden='{{mask}}' catchtap='hideAllBox'></view>
+<!--购物车/立即购买弹窗-->
+<view class='lay-box detail-cart {{!cartBox ? "on" : ""}}'>
+	<view class='box-cart-title'>
+		<view class='name'>{{product.name}}</view>
+		<view class='price-box'>
+			<!--价格-->
+			代取费用<view class='price'>￥{{product.price}}
+      </view>
+			<!--右上角关闭按钮-->
+			<text class='lay-close' bindtap='closeBox'>×</text>
+		</view>
+	</view>
+  <scroll-view scroll-y class='box-content'>
+    <view class='edit-contianer'><text class='num-text'>代取地：{{product.from}}{{product.from_desc}}</text></view>
+    <view class='edit-contianer'><text class='num-text'>目的地：{{product.to}}{{product.to_desc}}</text></view>
+    <view class='box-spec'>
+			<view class='cor-grey'>详细描述：{{product.desc}}</view>
+		</view>
+	</scroll-view>
+	<view class='box-btn' bind:tap="immediately">确定</view>
+</view>
+
+
 

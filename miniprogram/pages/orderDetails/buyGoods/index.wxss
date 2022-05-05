@@ -136,7 +136,7 @@
 .product-item{
     display: flex;
     justify-content: space-around;
-    height:470rpx;
+    height:270rpx;
     color: #6D6D6D;
     border-bottom: 1rpx solid #E9E9E9;
     padding:20rpx;
