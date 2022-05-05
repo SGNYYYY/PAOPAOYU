@@ -14,7 +14,9 @@
     "pages/orderDetails/buyGoods/index",
     "pages/orderDetails/buyRun/index",
     "pages/orderDetails/sellGoods/index",
-    "pages/orderDetails/sellRun/index"
+    "pages/orderDetails/sellRun/index",
+    "pages/MessageDetail/MessageDetail"
+
   ],
   "window": {
     "navigationBarTextStyle": "black",
