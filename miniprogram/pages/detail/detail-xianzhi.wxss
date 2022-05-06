@@ -3,7 +3,6 @@
 .container {
   width: 750rpx;
 }
-/* 轮播图 */
 .header{
   display: flex;
   height: 100rpx;

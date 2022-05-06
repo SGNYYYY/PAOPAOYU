@@ -21,10 +21,10 @@
     </view>
   </view>
   <block wx:for="{{product_daiqu}}" wx:key="key">
-    <product-daiqu currentTab="{{currentTab}}" product_daiqu="{{item}}" bind:showDaiquDetail='showDaiquDetail' ></product-daiqu>
+    <product-daiqu currentTab="{{currentTab}}" product_daiqu="{{item}}" bind:showDaiquDetail='showDaiquDetail' wx:if="{{item.status==0}}"></product-daiqu>
   </block>
   <block wx:for="{{product_xianzhi}}" wx:key="key">
-    <product-xianzhi currentTab="{{currentTab}}" product_xianzhi="{{item}}" bind:xianzhiDetails="xianzhiDetails"></product-xianzhi>
+    <product-xianzhi currentTab="{{currentTab}}" product_xianzhi="{{item}}" bind:xianzhiDetails="xianzhiDetails" wx:if="{{item.status==0}}"></product-xianzhi>
   </block>
 </view>
 

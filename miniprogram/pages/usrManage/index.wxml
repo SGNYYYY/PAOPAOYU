@@ -1,4 +1,13 @@
 <!--pages/usrManage/index.wxml-->
+<view wx:for="{{UserInfo}}" wx:key="key">
+  <view class="userinfo-container">
+    <image class="head" src="{{item.avatarUrl}}"></image>
+    <view class="nickName">{{item.nickName}}</view>
+  </view>
+  <view class="line"></view>
+</view>
+
+
 <!-- 订单管理按钮 -->
 <view class="orderManageBtnView"> 
    <button class="orderManageBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="true" disabled="{{disabled}}" bindtap="orderManage">订单管理</button> 

@@ -1,6 +1,6 @@
 <!--components/product-daiqu-column/index.wxml-->
   <!-- 代取订单 -->
-<view class="container" wx:if="{{currentTab==0&&product_daiqu.status==0}}">
+<view class="container" wx:if="{{currentTab==0}}">
   <!-- 商品展示左边 -->
   <view class='product-left'>
     <view class='product-name' >{{product_daiqu.name}}</view>

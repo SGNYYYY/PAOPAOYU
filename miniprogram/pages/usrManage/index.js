@@ -1,4 +1,7 @@
 // pages/usrManage/index.js
+import { UserInfoModel } from '../../models/UserInfoModel.js'
+let userInfoModel = new UserInfoModel()
+const app = getApp()
 Page({
 
   /**
@@ -12,7 +15,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    userInfoModel.getUserInfo(res=>{
+      console.log(res.result.data)
+      this.setData({
+        UserInfo: res.result.data.data
+      })
+    })
   },
 
   /**

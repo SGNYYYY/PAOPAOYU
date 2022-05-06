@@ -13,6 +13,7 @@
           <view>价格：￥{{item.price}}</view>
           <view>订单状态：{{orderStatus[item.status]}}</view>
           <view>卖家昵称：{{item.send_name}}</view>
+          <button class='confirm' bindtap="confirm" data-id="{{item._id}}" wx:if="{{item.status==1}}">确认完成</button>
         </view>
 
 
@@ -20,9 +21,9 @@
     </block>
   </view>
   
-  <view class='confirm-container'>
+  <view class='back-container'>
 
-    <view class='confirm' bindtap="back">
+    <view class='back' bindtap="back">
       <text>返回</text>
     </view>
 

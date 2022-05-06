@@ -1,23 +1,59 @@
 // pages/MessageDetail/MessageDetail.js
 const app = getApp()
+const friends = require('../message/messagelist.js')
 var inputVal = '';
 var msgList = [];
 var windowWidth = wx.getSystemInfoSync().windowWidth;
 var windowHeight = wx.getSystemInfoSync().windowHeight;
 var keyHeight = 0;
-
+import { MessageListModel } from '../../models/MessageListModel.js'
+let messageListModel = new MessageListModel()
 /**
  * 初始化数据
  */
-function initData(that) {
+function initData(that,options) {
   inputVal = '';
-
-  msgList = [{
+  if(options.from !="messagelist"){
+      if(options.from == "xianzhi"){
+        msgList = [{
+          speaker: 'server',
+          contentType: 'text',
+          content: '您好,您已下单我的商品，我的电话是：'+options.contact_tel
+        } ]
+    }else{
+      msgList = [{
+        speaker: 'server',
+        contentType: 'text',
+        content: '您好,您已领取我的代取订单，我的电话是：'+options.contact_tel
+      }]
+    }
+      if(options.contact_wechat!=""){
+        msgList[0].content += '我的微信是：'+options.contact_wechat
+      }
+      msgList[0].content += '请尽快与我联系'
+      let message = {}
+      message.photo= options.send_avatarUrl,
+      message.nickname= options.send_name,
+      message.time= new Date().getHours()+':'+new Date().getMinutes(),
+      message.content= msgList[0].content,
+      message.openID = app.globalData.openid,
+      message.others_openID = options.send_openid
+      messageListModel.createMessage(message,res=>{
+      })
+    friends.list.push({
+      photo: options.send_avatarUrl,
+      nickname: options.send_name,
+      time: new Date().getHours()+':'+new Date().getMinutes(),
+      message: msgList[0].content,
+    })
+  }else{
+    msgList = [{
       speaker: 'server',
       contentType: 'text',
-      content: '你好'
+      content: options.content
     }
   ]
+  }
   that.setData({
     msgList,
     inputVal
@@ -39,17 +75,17 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-      initData(this);
-      console.log(options);
-      this.setNickName(options);
+      initData(this,options)
+      console.log(options)
+      this.setNickName(options)
       this.setData({
-        photo:options.photo
+        photo:options.send_avatarUrl
       })
     },
 
     // 设置昵称
     setNickName(options) {
-      const nickname = options.nickname;
+      const nickname = options.send_name;
       wx.setNavigationBarTitle({
         title: nickname
       });

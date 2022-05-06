@@ -1,11 +1,11 @@
 <!--pages/orderManage/index.wxml-->
 <block wx:for="{{product_daiqu}}" wx:key="key">
   <product-daiqu currentTab="0" product_daiqu="{{item}}"></product-daiqu>
-  <button class='delete_daiqu'>删除</button>
+  <button class='delete_daiqu' data-id="{{item._id}}" bindtap="deletedaiqu">删除</button>
 </block>
 <block wx:for="{{product_xianzhi}}" wx:key="key">
   <product-xianzhi currentTab="1" product_xianzhi="{{item}}" bind:xianzhiDetails="xianzhiDetails"></product-xianzhi>
-  <button class='delete_xianzhi'>删除</button>
+  <button class='delete_xianzhi' data-id="{{item._id}}" bindtap="deletexianzhi">删除</button>
 </block>
 <!-- 订单管理按钮 -->
 

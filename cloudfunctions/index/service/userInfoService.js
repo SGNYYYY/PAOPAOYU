@@ -33,9 +33,13 @@ const getUserInfoByOpenId = (openid) => {
 const addUserInfo = (userInfo) => {
   return model.add(USERINFO, userInfo)
 }
+const getUserInfo = () => {
+  return model.query(USERINFO, USERINFOFIELD)
+}
 // 导出
 module.exports = {
   getOpenId,
   getUserInfoByOpenId,
-  addUserInfo
+  addUserInfo,
+  getUserInfo
 }

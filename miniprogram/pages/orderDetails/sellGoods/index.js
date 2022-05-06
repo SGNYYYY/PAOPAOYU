@@ -19,6 +19,29 @@ Page({
       })
     })
   },
+  confirm: function(e){
+    let that = this
+    wx.showModal({
+      title:'确认完成？',
+      content:'请确认订单是否完成',
+      cancelColor: 'grey',
+      success (res) {
+        if (res.confirm) {
+          // console.log('用户点击确定')
+          console.log(e.target.dataset.id)
+          let xianzhi={}
+          xianzhi.status = 2
+          xianzhi._id = e.target.dataset.id
+
+          xianzhiModel.doneXianzhi(xianzhi,res=>{
+            that._init()
+          })
+        } else if (res.cancel) {
+          // console.log('用户点击取消')
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

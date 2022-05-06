@@ -2,7 +2,7 @@
 .container{
   width: 750rpx;
   min-height: 100%;
-  background-color: #FFFFFF;
+  background-color: #f1f1f1;
 }
 
 .redirect-address{
@@ -101,7 +101,7 @@
   color:#FC2C1D;
   line-height:44rpx;
 }
-.confirm-container{
+.back-container{
   width: 750rpx;
   height: 80rpx;
   background-color: #FFFFFF;
@@ -115,7 +115,7 @@
 .total{
   margin: 0 18rpx 0 0;
 }
-.confirm{
+.back{
   width:168rpx;
   height:58rpx;
   background:#FD5E53;
@@ -123,7 +123,7 @@
   text-align: center;
   margin: 0 18rpx 0 0;
 }
-.confirm text{
+.back text{
   font-size:28rpx;
   color:#FFFFFF;
   line-height:58rpx;
@@ -134,11 +134,13 @@
 }
 
 .product-item{
+  border-radius: 30rpx;
+  box-shadow: rgb(160, 160, 160);
     display: flex;
     justify-content: space-around;
-    height:470rpx;
-    color: #6D6D6D;
-    border-bottom: 1rpx solid #E9E9E9;
+    color: #111111;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1rpx solid #949494;
     padding:20rpx;
 }
 .product-item .item-left{
@@ -165,4 +167,17 @@
 
 .order-accounts{
     background-color: #fff;
+}
+.confirm{
+  width:170rpx;
+  height:56rpx;
+  line-height: 56rpx;
+  background:rgba(255,79,80,1);
+  border-radius:15rpx;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  position:relative;
+  left:180rpx;
+  top: -30rpx;
 }

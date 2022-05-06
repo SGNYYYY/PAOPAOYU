@@ -90,5 +90,14 @@ class DaiquModel extends CloudRequest {
         }
     })
   }
+  deleteDaiqu(daiqu_id,callBack) {
+    this.request({
+      url:"deleteDaiqu",
+      data: {daiqu_id: daiqu_id},
+      success: res => {
+        callBack(res)
+      }
+    })
+  }
 }
 export { DaiquModel }

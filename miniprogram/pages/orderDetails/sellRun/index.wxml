@@ -16,15 +16,16 @@
           <view>结束时间：{{item.time_to}}</view>
           <view>订单状态：{{orderStatus[item.status]}}</view>
           <view>价格：{{item.price}}元</view>
+          <button class='confirm' bindtap="confirm" data-id="{{item._id}}" wx:if="{{item.status==1}}">确认完成</button>
         </view>
 
       </view>
     </block>
   </view>
   
-  <view class='confirm-container'>
+  <view class='back-container'>
 
-    <view class='confirm' bindtap="back">
+    <view class='back' bindtap="back">
       <text>返回</text>
     </view>
 

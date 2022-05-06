@@ -38,7 +38,18 @@ class UserInfoModel extends CloudRequest {
       }
     })
   }
-
+    /**
+   * 获取用户信息
+   * @param {*} callBack 
+   */
+  getUserInfo(callBack) {
+    this.request({
+      url: "getUserInfo",
+      success: res => {
+        callBack(res)
+      }
+    })
+  }
 }
 
 export { UserInfoModel }

@@ -1,5 +1,9 @@
 // pages/orderManage/index.js
 import {IndexModel} from '../../models/IndexModel'
+import {DaiquModel} from '../../models/DaiquModel'
+import {XianzhiModel} from '../../models/XianzhiModel.js'
+let xianzhiModel = new XianzhiModel()
+let daiquModel = new DaiquModel()
 let indexModel = new IndexModel()
 var app = getApp();
 Page({
@@ -10,7 +14,42 @@ Page({
   data: {
 
   },
-
+  deletexianzhi: function(e){
+    let that = this
+    wx.showModal({
+      title:'确认删除？',
+      content:'请确认是否删除该订单',
+      cancelColor: 'grey',
+      success (res) {
+        if (res.confirm) {
+          // console.log('用户点击确定')
+          xianzhiModel.deleteXianzhi(e.target.dataset.id,res=>{
+            that._init()
+          })
+        } else if (res.cancel) {
+          // console.log('用户点击取消')
+        }
+      }
+    })
+  },
+  deletedaiqu: function(e){
+    let that = this
+    wx.showModal({
+      title:'确认删除？',
+      content:'请确认是否删除该订单',
+      cancelColor: 'grey',
+      success (res) {
+        if (res.confirm) {
+          // console.log('用户点击确定')
+          daiquModel.deleteDaiqu(e.target.dataset.id,res=>{
+            that._init()
+          })
+        } else if (res.cancel) {
+          // console.log('用户点击取消')
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -29,6 +68,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this._init()
+  },
+  _init: function(){
     indexModel.getXianzhi(res => {
       this.setData({
         product_xianzhi :  res.result.data.data
@@ -40,7 +82,6 @@ Page({
       })
     })  
   },
-
   /**
    * 生命周期函数--监听页面隐藏
    */

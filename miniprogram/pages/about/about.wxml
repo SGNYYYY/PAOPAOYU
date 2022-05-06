@@ -1,0 +1,22 @@
+<!--pages/my/about.wxml-->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}"><view slot="backText"></view><view slot="content"></view></cu-custom>
+<view class='margin-xl bg-white padding-xl radius shadow-lg shadow-warp'>
+    <view class="cu-bar bg-white">
+    <view class="action sub-title">
+      <text class="text-xl text-bold text-green">关于跑跑鱼</text>
+      <text class="bg-green"></text>
+    </view>
+  </view>
+  <view class='text-content'>
+    <view>欢迎使用跑跑鱼！</view>
+    <view class='margin-top-sm'>这是一款面向东北大学全体学生的代取&闲置交易平台。</view>
+    <view class='margin-top-sm'>目前正处于试运营阶段，欢迎提出宝贵意见。</view>
+    <view class='margin-top-sm'>如果你遇到了什么问题请反馈给我们，我们会尽快处理！</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="action sub-title1">
+      <text class="text-ABC text-green">about</text>
+    </view>
+  </view>
+  </view>
+

@@ -107,6 +107,9 @@ const doneDaiqu = (daiquData) => {
   let daiquOrder = model.update(DAIQU,id, params);
   return daiquOrder
 }
+const deleteDaiqu = (daiqu_id) => {
+  return model.remove(DAIQU,daiqu_id);
+}
 module.exports = {
   getDaiqu,
   getDaiquById,
@@ -114,5 +117,6 @@ module.exports = {
   getDaiquByTakerOpenId,
   createDaiqu,
   takeDaiqu,
-  doneDaiqu
+  doneDaiqu,
+  deleteDaiqu
 }

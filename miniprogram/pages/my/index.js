@@ -144,7 +144,19 @@ Page({
     wx.navigateTo({
       url: '../myOrder/index',
     })
-  }
-
+  },
+  /**
+   * 关于
+   */
+  aboutUs: function() {
+    wx.navigateTo({
+      url: '../about/about',
+    })
+  },
+  contactUs: function() {
+    wx.navigateTo({
+      url: '../contactus/contactus',
+    })
+  },
   
 })

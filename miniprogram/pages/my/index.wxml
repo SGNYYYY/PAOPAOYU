@@ -18,8 +18,22 @@
   <view class="ohter mt">
       <button class="cell" bindtap="myOrder">
           <view class="cellLeft">
-              <image src="../../images/order.png"></image>
+              <image src="cloud://sgnyyyy-0128.7367-sgnyyyy-0128-1302561482/images_paopaoyu/order.png"></image>
               <text>我的订单</text>
+          </view>
+          <text class="cellRight">></text>
+      </button>
+      <button class="cell" bindtap="aboutUs">
+          <view class="cellLeft">
+              <image src="cloud://sgnyyyy-0128.7367-sgnyyyy-0128-1302561482/images_paopaoyu/aboutus.png"></image>
+              <text>关于</text>
+          </view>
+          <text class="cellRight">></text>
+      </button>
+      <button class="cell" bindtap="contactUs">
+          <view class="cellLeft">
+              <image src="cloud://sgnyyyy-0128.7367-sgnyyyy-0128-1302561482/images_paopaoyu/contactus.png"></image>
+              <text>联系我们</text>
           </view>
           <text class="cellRight">></text>
       </button>

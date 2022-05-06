@@ -103,6 +103,9 @@ const doneXianzhi = (xianzhiData) => {
   let xianzhiOrder = model.update(XIANZHI,id, params);
   return xianzhiOrder
 }
+const deleteXianzhi = (xianzhi_id) => {
+  return model.remove(XIANZHI,xianzhi_id);
+}
 module.exports = {
   getXianzhi,
   getXianzhiById,
@@ -111,4 +114,5 @@ module.exports = {
   getXianzhiByTakerOpenId,
   takeXianzhi,
   doneXianzhi,
+  deleteXianzhi
 }

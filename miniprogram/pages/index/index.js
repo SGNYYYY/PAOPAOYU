@@ -24,11 +24,11 @@ Page({
     duration: 1000, // 滑动动画时长
     circular: true,//是否采用衔接滑动 
     banners:[
-      {image:"/image/adv1.jpg"},
-      {image:"/image/adv2.jpg"},
-      {image:"/image/adv3.jpg"},
-      {image:"/image/adv4.jpg"},
-      {image:"/image/adv5.jpg"},
+      {image:"cloud://sgnyyyy-0128.7367-sgnyyyy-0128-1302561482/banner/adv1.JPG"},
+      {image:"cloud://sgnyyyy-0128.7367-sgnyyyy-0128-1302561482/banner/adv2.JPG"},
+      {image:"cloud://sgnyyyy-0128.7367-sgnyyyy-0128-1302561482/banner/adv3.JPG"},
+      {image:"cloud://sgnyyyy-0128.7367-sgnyyyy-0128-1302561482/banner/adv4.JPG"},
+      {image:"cloud://sgnyyyy-0128.7367-sgnyyyy-0128-1302561482/banner/adv5.JPG"},
     ],
     currentTab:0,
     product_daiqu: [
@@ -107,8 +107,11 @@ Page({
           this._showToast('none', '下单成功!')
         }
       })
-      wx.switchTab({
-        url: '../message/index',
+      wx.navigateTo({
+        url: '../MessageDetail/MessageDetail?product_id='+this.data.product._id
+        +'&send_avatarUrl=' +this.data.product.send_avatarUrl+'&send_name='+this.data.product.send_name
+        +'&contact_tel='+this.data.product.contact_tel+'&contact_wechat='+this.data.product.contact_wechat
+        +'&from=daiqu'+'&send_openid='+this.data.product.send_openid
       })
     }
     this.setData({

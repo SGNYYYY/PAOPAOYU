@@ -10,8 +10,8 @@ const xianzhi = require('service/xianzhiService.js')
 const daiqu = require('service/daiquService.js')
 // 用户信息业务层
 const userInfo = require('service/userInfoService.js')
-// 订单
-// const order = require('service/orderService.js')
+// 消息
+const messagelist = require('service/messagelistService.js')
 
 
 
@@ -109,8 +109,21 @@ exports.main = async (event, context) => {
     await next()
   })  
 
-/***************************    主题商品   *************************************/  
-
+/***************************    消息   *************************************/  
+  // 更新订单
+  app.router('getMessageListByOpenId', async (ctx, next) => {
+    // console.log(event)
+    ctx.data = await messagelist.getMessageListByOpenId(event.data.openid)
+    ctx.body = await returnUtil.success(ctx)
+    await next()
+  })
+  // 更新订单
+  app.router('createMessage', async (ctx, next) => {
+    // console.log(event)
+    ctx.data = await messagelist.createMessage(event.data.message)
+    ctx.body = await returnUtil.success(ctx)
+    await next()
+  })
 
 
 /***************************    更新   *****************************************/  
@@ -143,9 +156,27 @@ exports.main = async (event, context) => {
     ctx.body = await returnUtil.success(ctx)
     await next()
   })
+  //删除订单
+  app.router('deleteDaiqu', async (ctx, next) => {
+    // console.log(event)
+    ctx.data = await daiqu.deleteDaiqu(event.data.daiqu_id)
+    ctx.body = await returnUtil.success(ctx)
+    await next()
+  })
+  //删除订单
+  app.router('deleteXianzhi', async (ctx, next) => {
+    // console.log(event)
+    ctx.data = await xianzhi.deleteXianzhi(event.data.xianzhi_id)
+    ctx.body = await returnUtil.success(ctx)
+    await next()
+  })
   
 /***************************   用户信息   *****************************************/ 
-
+app.router('getUserInfo', async (ctx,next) =>{
+  ctx.data = await userInfo.getUserInfo()
+  ctx.body = await returnUtil.success(ctx)
+  await next()
+})
 app.router('getUserInfoByOpenId', async (ctx,next) =>{
   let openid =  event.data.openid
   console.log(openid)

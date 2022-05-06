@@ -21,6 +21,29 @@ Page({
       })
     })
   },
+  confirm: function(e){
+    let that = this
+    wx.showModal({
+      title:'确认完成？',
+      content:'请确认订单是否完成',
+      cancelColor: 'grey',
+      success (res) {
+        if (res.confirm) {
+          // console.log('用户点击确定')
+          console.log(e.target.dataset.id)
+          let daiqu={}
+          daiqu.status = 2
+          daiqu._id = e.target.dataset.id
+
+          daiquModel.doneDaiqu(daiqu,res=>{
+            that._init()
+          })
+        } else if (res.cancel) {
+          // console.log('用户点击取消')
+        }
+      }
+    })
+  },
   onLoad: function (options) {
     this.setData({
       orderStatus:app.globalData.orderStatus

@@ -6,8 +6,8 @@
     <block wx:for="{{products}}" wx:key="">
       <view class="product-item">
         <view class="item-left">
-          <image src="{{item.send_avatarUrl}}"></image>
-          <image src="{{item.imgFileIDs[0]}}"></image>
+          <image class="user-head" src="{{item.send_avatarUrl}}"></image>
+          <image class="product-img" src="{{item.imgFileIDs[0]}}"></image>
         </view>
         <view class="item-middle">
           <view>订单名称：{{item.name}}</view>

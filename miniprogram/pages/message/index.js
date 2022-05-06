@@ -1,6 +1,8 @@
 // page/message/index.js
 const app = getApp()
 const friends = require('./messagelist.js')
+import { MessageListModel } from '../../models/MessageListModel.js'
+let messageListModel = new MessageListModel()
 Page({
 
   /**
@@ -12,7 +14,8 @@ Page({
   gotoChat(event) {
     const currentUser = event.currentTarget.dataset.user;
     wx.navigateTo({
-      url: '../MessageDetail/MessageDetail?nickname=' + currentUser.nickname + '&photo=' + currentUser.photo
+      url: '../MessageDetail/MessageDetail?send_name=' + currentUser.nickname + '&send_avatarUrl=' + currentUser.photo + '&content='
+      +currentUser.content+ '&from=messagelist'
     })
   },
 
@@ -20,22 +23,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
+    //登录判断
+    messageListModel.getMessageListByOpenId(app.globalData.openid, res=>{
+      friends.list=res.result.data.data
+    })
+  this.setData({
+    friends:friends.list
+  })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    //登录判断
+    messageListModel.getMessageListByOpenId(app.globalData.openid, res=>{
+      friends.list=res.result.data.data
+    })
+  this.setData({
+    friends:friends.list
+  })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: async function() {
-    //登录判断
-    /*if (!app.globalData.hasLogin) {
+    if (!app.globalData.hasLogin) {
       wx.showToast({
         title: '您未登录~',
         image: '/images/error.png'
@@ -49,7 +63,16 @@ Page({
           complete: function(res) {},
         })
       }, 1000);
-    }*/
+    }else{
+          //登录判断
+      messageListModel.getMessageListByOpenId(app.globalData.openid, res=>{
+        friends.list=res.result.data.data
+        this.setData({
+          friends:friends.list
+        })
+      })
+
+    }
   },
 
   /**

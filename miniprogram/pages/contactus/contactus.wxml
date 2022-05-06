@@ -1,0 +1,21 @@
+<!--pages/contactus/contactus.wxml-->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}"><view slot="backText"></view><view slot="content"></view></cu-custom>
+<view class='margin-xl bg-white padding-xl radius shadow-lg shadow-warp'>
+    <view class="cu-bar bg-white">
+    <view class="action sub-title">
+      <text class="text-xl text-bold text-yellow">联系我们</text>
+      <text class="bg-yellow"></text>
+    </view>
+  </view>
+  <view class='text-content'>
+    <view>欢迎使用跑跑鱼！</view>
+    <view class='margin-top-sm text-black'>TEL:  <text user-select="true">18950895295</text></view>
+    <view class='margin-top-sm text-black'>WECHAT:  <text user-select="true">S0G1N2Y8</text></view>
+    <view class='margin-top-sm text-black'>QQ:  <text user-select="true">1162814055</text></view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="action sub-title1">
+      <text class="text-ABC text-yellow">Contact Us</text>
+    </view>
+  </view>
+  </view>

@@ -44,8 +44,11 @@ Page({
           this._showToast('none', '下单成功!')
         }
       })
-      wx.switchTab({
-        url: '../message/index',
+      wx.navigateTo({
+        url: '../MessageDetail/MessageDetail?product_id='+this.data.product_xianzhi._id
+        +'&send_avatarUrl=' +this.data.product_xianzhi.send_avatarUrl+'&send_name='+this.data.product_xianzhi.send_name
+        +'&contact_tel='+this.data.product_xianzhi.contact_tel+'&contact_wechat='+this.data.product_xianzhi.contact_wechat
+        +'&from=xianzhi'+'&send_openid='+this.data.product_xianzhi.send_openid
       })
     }
   },

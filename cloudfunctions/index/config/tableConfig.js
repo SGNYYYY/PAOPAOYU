@@ -3,4 +3,5 @@ module.exports = {
   USERINFO: 'userInfo',
   DAIQU: 'daiqu',
   XIANZHI: 'xianzhi',
+  MESSAGELIST: 'messagelist'
 }

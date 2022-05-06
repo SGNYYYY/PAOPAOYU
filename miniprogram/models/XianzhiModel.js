@@ -80,13 +80,21 @@ class XianzhiModel extends CloudRequest {
    * @param {*} callBack 
    */
   doneXianzhi(xianzhi,callBack) {
-    console.log(daiqu)
     this.request({
         url: "doneXianzhi",
         data: { xianzhiData: xianzhi},
         success: res => {
             callBack(res)
         }
+    })
+  }
+  deleteXianzhi(xianzhi_id,callBack) {
+    this.request({
+      url:"deleteXianzhi",
+      data: {xianzhi_id: xianzhi_id},
+      success: res => {
+        callBack(res)
+      }
     })
   }
 }

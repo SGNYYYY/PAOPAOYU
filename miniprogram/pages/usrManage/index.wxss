@@ -1,6 +1,24 @@
 /* pages/usrManage/index.wxss */
-
-
+.userinfo-container {
+  display: flex;
+}
+.head{
+  height: 120rpx;
+  width: 120rpx;
+  border-radius:100%;
+  margin-left:40rpx;
+  margin-top:20rpx;
+}
+.nickName {
+  margin-left:20rpx;
+  align-items: center;
+}
+.line {
+  margin-top:10rpx;
+  height: 1rpx;
+  width: 100%;
+  background-color:grey;
+}
 /* 订单管理 */
 .orderManageBtnView {
 

@@ -68,14 +68,14 @@ Page({
   // 底部选项卡
   orderManage: function(param){
     var app = getApp()
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../orderManage/index',
     })  
   },
 
   usrManage: function(param){
     var app = getApp()
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../usrManage/index'
     }) 
   },
