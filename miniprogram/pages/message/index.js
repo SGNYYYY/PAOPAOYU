@@ -52,7 +52,7 @@ Page({
     if (!app.globalData.hasLogin) {
       wx.showToast({
         title: '您未登录~',
-        image: '/images/error.png'
+        image: 'cloud://sgnyyyy-0128.7367-sgnyyyy-0128-1302561482/images_paopaoyu/unselect/error.png'
       })
       setTimeout(function() {
         // 返回

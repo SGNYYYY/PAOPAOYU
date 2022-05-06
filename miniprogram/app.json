@@ -37,33 +37,35 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "image/shouye.png",
-        "selectedIconPath": "image/selected/shouye.png",
+        "iconPath": "images/unselect/shouye.png",
+        "selectedIconPath": "images/selected/shouye.png",
         "text": "首页",
         "clas": "menu-item"
       },
       {
         "pagePath": "pages/publish/index",
-        "iconPath": "image/icon_fabu.png",
-        "selectedIconPath": "image/selected/icon_fabu.png",
+        "iconPath": "images/unselect/icon_fabu.png",
+        "selectedIconPath": "images/selected/icon_fabu.png",
+
         "text": "发布",
         "clas": "menu-item"
       },
       {
         "pagePath": "pages/message/index",
-        "iconPath": "image/xiaoxi.png",
-        "selectedIconPath": "image/selected/xiaoxi.png",
+        "iconPath": "images/unselect/xiaoxi.png",
+        "selectedIconPath": "images/selected/xiaoxi.png",
         "text": "消息",
         "clas": "menu-item"
       },
       {
         "pagePath": "pages/my/index",
-        "iconPath": "image/gerenzhongxin.png",
-        "selectedIconPath": "image/selected/gerenzhongxin.png",
+        "iconPath": "images/unselect/gerenzhongxin.png",
+        "selectedIconPath": "images/selected/gerenzhongxin.png",
         "text": "个人中心",
         "clas": "menu-item"
       }
     ]
   },
+  "lazyCodeLoading": "requiredComponents",
   "sitemapLocation": "sitemap.json"
 }

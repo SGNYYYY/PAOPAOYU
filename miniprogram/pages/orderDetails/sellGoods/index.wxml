@@ -1,5 +1,4 @@
 <!--pages/orderDetails/sellGoods/index.wxml-->
-<wxs module="filter" src="../../../common/wxs/filters.wxs"></wxs>
 <view class='container'>
 
   <view class='product-container'>

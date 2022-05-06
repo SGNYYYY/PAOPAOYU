@@ -10,7 +10,7 @@ Page({
   data: {
     userInfo:{},
     login: false,
-    imgUrl: "../../images/un_log.png"
+    imgUrl: "cloud://sgnyyyy-0128.7367-sgnyyyy-0128-1302561482/images_paopaoyu/unselect/un_log.png"
   },
 
   /**
