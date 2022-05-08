@@ -56,7 +56,6 @@ const query = (model, fields = {}, options = {}, page = 0, size = 10, order = { 
     .where(options)
     .field(fields) 
     .skip(page)
-    .limit(size)
     .orderBy(order.name, order.orderBy)
     .get()
 
